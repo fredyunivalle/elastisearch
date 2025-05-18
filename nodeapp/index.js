@@ -1,7 +1,10 @@
 const axios = require('axios');
 
 function sendLog(message) {
-  axios.post('http://localhost:9600', {
+  const indexName = 'clases-univalle'; 
+  const url = `http://localhost:9200/${indexName}/_doc`;
+
+  axios.post(url, {
     message: message,
     timestamp: new Date()
   })
